@@ -1,67 +1,67 @@
 
-TAN518G  1
-TAN410G  1
-LOG222F  1
-LOG603G  1
-EFN214G  1
-EFN205G  1
-TSM401G  1
-TAN613G  1
-TAN301G  1
-HJU408G  1
-ITH410G  3
-LOG240F  3
-LOG404G  3
-HJU333F  3
-HJU212G  3
-ITH602G  4
-LOG303F  5
-HJU801G  5
-LOG203G  5
-LOG210F  7
-LOG212F  7
-TSM004G  7
-TAN620G  7
-ITH034M  7
-SKF017F  7
-HJU410G  8
-HJU209G  8
-LOG211F  0
-HJU213G  9
-TAN308G  9
-TAN103G  9
-TAN522G  9
-LOG228F  9
-LOG605G  9
-ITH411G  9
-KEN003G  9
-GSS207F  9
-HJU409G  10
-GSS091G  11
-HJU702G  11
-TAN412G  11
-HJU701G  11
-LOG405G  11
-GSS090G  11
-HJU320F  13
-LOG274F  13
-ITH030G  13
-HJU604G  15
-TAN618G  15
-TAN310G  15
-HJU210G  15
-LOG206F  15
-HJU411G  16
-GSS082G  16
-LOG201G  17
-LAK207F  17
-TAN010G  17
-LOG604G  19
-HJU214G  19
-LAK610F  20
-GSS213F  21
-HJU414G  21
-HJU601G  21
-LOG279F  21
-LOG403G  21
-TAN616G  21
+set festa[ TAN518G ] =   1 ;
+set festa[ TAN410G ] =   1 ;
+set festa[ LOG222F ] =   1 ;
+set festa[ LOG603G ] =   1 ;
+set festa[ EFN214G ] =   1 ;
+set festa[ EFN205G ] =   1 ;
+set festa[ TSM401G ] =   1 ;
+set festa[ TAN613G ] =   1 ;
+set festa[ TAN301G ] =   1 ;
+set festa[ HJU408G ] =   1 ;
+set festa[ ITH410G ] =   3 ;
+set festa[ LOG240F ] =   3 ;
+set festa[ LOG404G ] =   3 ;
+set festa[ HJU333F ] =   3 ;
+set festa[ HJU212G ] =   3 ;
+set festa[ ITH602G ] =   4 ;
+set festa[ LOG303F ] =   5 ;
+set festa[ HJU801G ] =   5 ;
+set festa[ LOG203G ] =   5 ;
+set festa[ LOG210F ] =   7 ;
+set festa[ LOG212F ] =   7 ;
+set festa[ TSM004G ] =   7 ;
+set festa[ TAN620G ] =   7 ;
+set festa[ ITH034M ] =   7 ;
+set festa[ SKF017F ] =   7 ;
+set festa[ HJU410G ] =   8 ;
+set festa[ HJU209G ] =   8 ;
+set festa[ LOG211F ] =   0 ;
+set festa[ HJU213G ] =   9 ;
+set festa[ TAN308G ] =   9 ;
+set festa[ TAN103G ] =   9 ;
+set festa[ TAN522G ] =   9 ;
+set festa[ LOG228F ] =   9 ;
+set festa[ LOG605G ] =   9 ;
+set festa[ ITH411G ] =   9 ;
+set festa[ KEN003G ] =   9 ;
+set festa[ GSS207F ] =   9 ;
+set festa[ HJU409G ] =   10 ;
+set festa[ GSS091G ] =   11 ;
+set festa[ HJU702G ] =   11 ;
+set festa[ TAN412G ] =   11 ;
+set festa[ HJU701G ] =   11 ;
+set festa[ LOG405G ] =   11 ;
+set festa[ GSS090G ] =   11 ;
+set festa[ HJU320F ] =   13 ;
+set festa[ LOG274F ] =   13 ;
+set festa[ ITH030G ] =   13 ;
+set festa[ HJU604G ] =   15 ;
+set festa[ TAN618G ] =   15 ;
+set festa[ TAN310G ] =   15 ;
+set festa[ HJU210G ] =   15 ;
+set festa[ LOG206F ] =   15 ;
+set festa[ HJU411G ] =   16 ;
+set festa[ GSS082G ] =   16 ;
+set festa[ LOG201G ] =   17 ;
+set festa[ LAK207F ] =   17 ;
+set festa[ TAN010G ] =   17 ;
+set festa[ LOG604G ] =   19 ;
+set festa[ HJU214G ] =   19 ;
+set festa[ LAK610F ] =   20 ;
+set festa[ GSS213F ] =   21 ;
+set festa[ HJU414G ] =   21 ;
+set festa[ HJU601G ] =   21 ;
+set festa[ LOG279F ] =   21 ;
+set festa[ LOG403G ] =   21 ;
+set festa[ TAN616G ] =   21 ;
