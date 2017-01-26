@@ -1,16 +1,16 @@
 ####  PBS preamble
-#PBS -N python_test
+#PBS -N Bessy
 #PBS -M tpr@hi.is
 #PBS -m abe
 
-#PBS -l procs=8,mem=1gb
-#PBS -l gres=gurobi:1
+#PBS -l nodes=1:ppn=8
+### #PBS -l gres=gurobi:1
 #PBS -j oe
 #PBS -V
 
-#PBS -A example_flux
-#PBS -l qos=flux
-#PBS -q flux
+#PBS -A Messy_Bessy
+#PBS -l qos=short
+#PBS -q short
 
 ####  End PBS preamble
 #  Print the assigned nodes
