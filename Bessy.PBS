@@ -22,4 +22,4 @@ fi
 cd $PBS_O_WORKDIR
 
 #  Put your job commands after this line
-gurobi_cl ResultFile=Bessy.sol ./Bessy.lp
+gurobi_cl ResultFile=Bessy.sol TimeLimit=100 ./Bessy.lp
