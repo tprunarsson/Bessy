@@ -1,1 +1,117 @@
- 
+#set fixslot[MIS105F]:=1 2 3 4 5 6 7 8 9 10 11 12;
+
+#set fixslot[VEL502G]:=1 2;
+#set fixslot[TAN603G]:=1;
+set fixslot[EFN205G]:=1;
+set fixslot[EFN214G]:=1;
+#set fixslot[HJUG408G]:=1;
+#set fixslot[LOG22F]:=1;
+set fixslot[LOG244F]:=1;
+set fixslot[LOG603G]:=1;
+set fixslot[TAN301G]:=1;
+set fixslot[TAN410G]:=1;
+set fixslot[TAN518G]:=1;
+set fixslot[TSM401G]:=1;
+set fixslot[HJU212G]:=3;
+set fixslot[HJU333F]:=3;
+set fixslot[ITH410G]:=3;
+set fixslot[LOG240F]:=3;
+set fixslot[LOG404G]:=3;
+set fixslot[ITH602G]:=4;
+set fixslot[HJU801G]:=5;
+set fixslot[LOG203G]:=5;
+set fixslot[LOG303F]:=5;
+set fixslot[ITH034M]:=7;
+set fixslot[LOG210F]:=7;
+set fixslot[LOG212F]:=7;
+set fixslot[SKF017F]:=7;
+#set fixslot[TAN602G]:=7;
+set fixslot[TSM004G]:=7;
+set fixslot[HJU209G]:=8;
+set fixslot[HJU410G]:=8;
+set fixslot[GSS207F]:=9;
+set fixslot[HJU213G]:=9;
+set fixslot[ITH411G]:=9;
+set fixslot[KEN003G]:=9;
+set fixslot[LOG228F]:=9;
+set fixslot[LOG605G]:=9;
+set fixslot[TAN103G]:=9;
+set fixslot[TAN308G]:=9;
+set fixslot[TAN522G]:=9;
+set fixslot[HJU409G]:=10;
+set fixslot[GSS090G]:=11;
+set fixslot[GSS091G]:=11;
+set fixslot[HJU701G]:=11;
+set fixslot[HJU702G]:=11;
+set fixslot[LOG234F]:=11;
+set fixslot[LOG405G]:=11;
+#set fixslot[TAN41G]:=11;
+set fixslot[HJU320F]:=13;
+set fixslot[ITH030G]:=13;
+set fixslot[LOG274F]:=13;
+set fixslot[HJU210G]:=15;
+set fixslot[HJU604G]:=15;
+set fixslot[LOG206F]:=15;
+set fixslot[TAN310G]:=15;
+set fixslot[TAN618G]:=15;
+set fixslot[GSS082G]:=16;
+set fixslot[HJU411G]:=16;
+set fixslot[LAK207F]:=17;
+set fixslot[LOG201G]:=17;
+set fixslot[LOG202F]:=17;
+set fixslot[TAN010G]:=17;
+set fixslot[HJU214G]:=19;
+set fixslot[LOG213F]:=19;
+set fixslot[LOG604G]:=19;
+set fixslot[LAK610F]:=20;
+set fixslot[GSS213F]:=21;
+set fixslot[HJU414G]:=21;
+set fixslot[HJU601G]:=21;
+set fixslot[LOG279F]:=21;
+set fixslot[LOG403G]:=21;
+set fixslot[TAN616G]:=21;
+set fixslot[LAN604M]:=1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16;
+set fixslot[VID209F]:=1 2 3 4 5 6;
+set fixslot[BOK410G]:=1 2 3 4 5 6 7 8 9 10 11 12 13 14;
+set fixslot[UPP209F]:=1 2 3 4 5 6 7 8 9 10 11 12 13 14;
+set fixslot[TOL401G]:=1 2 9 10 11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[HBV201F]:=1 2 9 10 11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[GSS097M]:=15 16 17 18 19 20 21 22;
+set fixslot[SPA266G]:=15 16 17 18 19 20 21 22;
+#set fixslot[SPA405G]:=15 16 17 18 19 20 21 22;
+set fixslot[FEL419G]:=1 2 3 4 5 6 15 16 17 18 19 20 21 22;
+set fixslot[VID258G]:=1 2 3 4 5 6 7 8;
+
+#Nytt inn
+#set fixslot[HAG105G] := 2;
+
+#NEW UPDATE
+# ER 1 RÉTT - NÁMSKEIÐIN ERU 3 SEM FYLGJAST AÐ
+param cidConjoinedData default 0 :=
+[EFN205G,EFN214G] 1
+#[HAG206G,MAS201F] 1
+#[MAS201F,STA203G] 1
+#[HAG206G,STA203G] 1
+#[HAG206G,MAS210F] 1
+[HAG206G,STA203G] 1
+#[MAS210F,STA203G] 1
+[KYN211F,KYN202G] 1
+[BOK410G,UPP209F] 1
+#[TJO203F,TJO437F] 1
+[UPP209F,BOK410G] 1
+#[LAK220G,LAK219G] 1
+#[LYD204F,LAK616G] 1
+[HSP808F,HSP202G] 1
+[LSS305G,LSS002F] 1
+[STA209G,LAN203G] 1
+[EDL206G,EDL201G] 1
+[EDL401G,RAF402G] 1
+[LAN209F,LAN410G] 1
+[LIF410G,LIF243F] 1
+[LAN203G,STA209G] 1
+[FER210F,FER409G] 1
+[FER213F,FER613G] 1
+[GSS091G,GSS090G] 1
+[GFR204G,GFR213G] 1;
+#[ISE502G,TAK307G] 1
+#[EFN106G,EFN112G] 1

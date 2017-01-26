@@ -436,10 +436,6 @@ GSS097M 0
 TOS403G 7
 ;
 
-set SpecialExams :=
-
-;
-
 set ComputerCourses :=
 LOG603G
 LOG244F
