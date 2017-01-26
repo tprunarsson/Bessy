@@ -1,0 +1,2 @@
+glpsol --check -m Bessy.mod -d default.dat -d forsendur.dat -d courses.dat -d resources.dat --wlp Bessy.lp
+gurobi_cl Threads=4 ResultFile=Bessy.sol Bessy.lp
