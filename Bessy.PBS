@@ -1,0 +1,25 @@
+####  PBS preamble
+#PBS -N python_test
+#PBS -M tpr@hi.is
+#PBS -m abe
+
+#PBS -l procs=8,mem=1gb
+#PBS -l gres=gurobi:1
+#PBS -j oe
+#PBS -V
+
+#PBS -A example_flux
+#PBS -l qos=flux
+#PBS -q flux
+
+####  End PBS preamble
+#  Print the assigned nodes
+if [ "x${PBS_NODEFILE}" != "x" ] ; then
+   cat $PBS_NODEFILE   # print the CPUs when running with PBS
+fi
+
+# Change to the PBS working directory
+cd $PBS_O_WORKDIR
+
+#  Put your job commands after this line
+gurobi_cl ResultFile=Bessy.sol ./Bessy.lp
