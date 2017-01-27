@@ -1,6 +1,0 @@
-glpsol --check -m BrutalBessy.mod -d default.dat -d forsendur.dat -d courses.dat -d resources.dat -d festa.dat -d groups.dat --wlp Bessy.lp
-gurobi_cl Threads=4 ResultFile=Bessy.sol Bessy.lp
-
-#cat Bessy.sol | grep Slot | grep -v ') 0' > Split.txt
-#python3 ChangeToRightFormatForPhases.py
-#glpsol -m BrutalBessy.mod -d default.dat -d forsendur.dat -d courses.dat -d resources.dat -d Split.dat
