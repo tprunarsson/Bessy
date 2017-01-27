@@ -1,0 +1,71 @@
+# TODO:
+rm(list=ls())
+load('fidinfo2017vor.Rdata')
+CidAssign <- readLines('namskeid.txt')
+
+# find unique program IDs
+ue <- unique(PID)
+Strict <- matrix(rep(0,length(CidAssign)*length(CidAssign)),nrow=length(CidAssign))
+
+write(NULL, file="groups.dat")
+count <- 1
+for (i in c(1:length(ue))) {
+  pos <- grep(ue[i],PID)
+  # We will only grab the mandetory courses in the same year or '-'
+  name <- NAME[pos]
+  year <- YEAR[pos]
+  req <- REQ[pos]
+  uyear <- unique(year)
+  for (j in c(1:length(uyear))) {
+    str <- c("")
+    if (uyear[j] != '-') {
+      pos <- grep(uyear[j],year)
+      str <- character(length=0)
+      for (k in c(1:length(pos))) {
+        if (req[pos[k]] == 'M') {
+          namestring <- substr(name[pos[k]],5,11)
+          namestring <- chartr(c('ÍÁÆÖÝÐÞÓÚÉ'),c('IAAOYDTOUE'), namestring)
+          if (length(grep(namestring, CidAssign)) > 0) {
+            str <- c(str, namestring)
+          }
+        }
+      }
+    }
+    if (length(str)>1) {
+      str <- unique(str)
+      strcat <- sprintf('set Group[%d] := ', count)
+      if (length(str) > 1) {
+        for (i in c(1:length(str))) {
+          strcat <- sprintf('%s %s', strcat, str[i])
+        }
+        strcat <- sprintf('%s;', strcat)
+        strcat <- chartr(c('ÍÁÆÖÝÐÞÓÚÉ'),c('IAAOYDTOUE'), strcat)
+        write(strcat, file = "groups.dat", append = T)
+        count <- count + 1
+        for (i in c(1:length(str))) {
+          for (j in c(1:length(str))) {
+            if (j != i) {
+              posi <- which(str[i]==CidAssign)
+              posj <- which(str[j]==CidAssign)
+              Strict[posi,posj] <- 1
+            }
+          }
+        }
+        
+      }
+    }
+  }
+}
+require(Matrix)
+image(as(Strict, "sparseMatrix"))
+
+write("\nparam Strict := \n", file = "groups.dat", append = T)
+for (i in c(1:length(CidAssign))) {
+  for (j in c(i:length(CidAssign))) {
+    if (Strict[i,j] == 1) {
+      strcat <- sprintf('%s %s 1', CidAssign[i], CidAssign[j])
+      write(strcat, file = "groups.dat", append = T)
+    }
+  }
+}
+write(";\n", file = "groups.dat", append = T)
