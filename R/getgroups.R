@@ -51,15 +51,46 @@ for (i in c(1:length(ue))) {
             }
           }
         }
-        
+
       }
     }
   }
 }
+extrastr = list()
+extrastr[[1]] = c("VID401G", "VID402G", "VID403G", "VID404G", "VID405G", "VID415G")
+extrastr[[2]] = c("VID202G", "VID204G", "VID205G", "VID258G", "VID263G")
+extrastr[[3]] = c("VID209F", "VID211F", "VID212F")
+extrastr[[4]] = c("FRA429G", "FRA417M", "FRA429M")
+extrastr[[5]] = c("HAG207F", "HAG212F", "VID207F")
+
+for (i in c(1:length(extrastr))) {
+  strcat <- sprintf('set Group[%d] := ', count)
+  str <- extrastr[[i]]
+  if (length(str) > 1) {
+    for (i in c(1:length(str))) {
+      strcat <- sprintf('%s %s', strcat, str[i])
+    }
+    strcat <- sprintf('%s;', strcat)
+    strcat <- chartr(c('ÍÁÆÖÝÐÞÓÚÉ'),c('IAAOYDTOUE'), strcat)
+    write(strcat, file = "groups.dat", append = T)
+    count <- count + 1
+    for (i in c(1:length(str))) {
+      for (j in c(1:length(str))) {
+        if (j != i) {
+          posi <- which(str[i]==CidAssign)
+          posj <- which(str[j]==CidAssign)
+          Strict[posi,posj] <- 1
+        }
+      }
+    }
+  }
+}
+
+
 require(Matrix)
 image(as(Strict, "sparseMatrix"))
 
-write("\nparam Strict := \n", file = "groups.dat", append = T)
+write("\nparam CidCommonGroupStudents := ", file = "groups.dat", append = T)
 for (i in c(1:length(CidAssign))) {
   for (j in c(i:length(CidAssign))) {
     if (Strict[i,j] == 1) {
