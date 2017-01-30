@@ -25,6 +25,8 @@ for (i in c(1:length(ConData))) {
   idx <-  which( (examslots<=byrjar) & (byrjar<=(examslots+hours(3))))
   if (length(idx) == 0) {
     idx <- 0 # ekki á venjulegu próftimabili !
+    idx <-  which( (examslots<=byrjar) )
+    idx <- -idx[1]
   }
   cid <- chartr(c('ÍÁÆÖÝÐÞÓÚÉ'),c('IAAOYDTOUE'), cid)
   cat(c("set festa[", cid, "] := "), file="festa.dat", append=TRUE)
