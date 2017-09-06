@@ -1,2 +1,2 @@
 # Bessy
-Examination timetabling - spring 2017
+Examination timetabling - autumn 2017
