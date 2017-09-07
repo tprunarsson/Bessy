@@ -1,5 +1,7 @@
+R CMD BATCH getpriority.R
 R CMD BATCH getresource.R
 R CMD BATCH getcourses.R
 R CMD BATCH getfesta.R
 R CMD BATCH getconjoined.R
-
+R CMD BATCH getdefault.R
+R CMD BATCH getforsendur.R
