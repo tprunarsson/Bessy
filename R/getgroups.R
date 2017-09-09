@@ -1,6 +1,6 @@
 # TODO:
 rm(list=ls())
-load('fidinfo2017vor.Rdata')
+load('fidinfo2017haust.Rdata')
 CidAssign <- readLines('namskeid.txt')
 
 # find unique program IDs
@@ -59,9 +59,9 @@ for (i in c(1:length(ue))) {
 extrastr = list()
 extrastr[[1]] = c("VID401G", "VID402G", "VID403G", "VID404G", "VID405G", "VID415G")
 extrastr[[2]] = c("VID202G", "VID204G", "VID205G", "VID258G", "VID263G")
-extrastr[[3]] = c("VID209F", "VID211F", "VID212F")
-extrastr[[4]] = c("FRA429G", "FRA417M", "FRA429M")
-extrastr[[5]] = c("HAG207F", "HAG212F", "VID207F")
+#extrastr[[3]] = c("VID209F", "VID211F", "VID212F")
+#extrastr[[4]] = c("FRA429G", "FRA417M", "FRA429M")
+#extrastr[[5]] = c("HAG207F", "HAG212F", "VID207F")
 
 for (i in c(1:length(extrastr))) {
   strcat <- sprintf('set Group[%d] := ', count)
