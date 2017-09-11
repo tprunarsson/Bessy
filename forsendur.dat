@@ -1,36 +1,36 @@
 
-set fixslot[LOG111F] :=1;
 set fixslot[LOG304G] :=1 2;
-set fixslot[LYF102G] :=1;
-set fixslot[SJU107G] :=1;
 set fixslot[LAK515G] :=1;
+set fixslot[SJU107G] :=1;
+set fixslot[LYF102G] :=1;
+set fixslot[LOG111F] :=1;
 set fixslot[LOG503G] :=3;
 set fixslot[LOG102F] :=4;
 set fixslot[LOG108G] :=5;
 set fixslot[LOG235F] :=5;
 set fixslot[LOG174F] :=9;
 set fixslot[LOG303G] :=9 10;
-set fixslot[LAK206F] :=11;
-set fixslot[LOG176F] :=11;
 set fixslot[LOG114F] :=11;
+set fixslot[LOG176F] :=11;
+set fixslot[LAK206F] :=11;
 set fixslot[LOG502G] :=11 12;
 set fixslot[VID103G] :=12;
 set fixslot[LOG103F] :=13;
 set fixslot[LAK305F] :=13;
-set fixslot[LAK120G] :=15;
 set fixslot[LAK121G] :=15;
-set fixslot[LAK514G] :=15;
 set fixslot[LOG131F] :=15;
+set fixslot[LAK514G] :=15;
+set fixslot[LAK120G] :=15;
 set fixslot[LOG233F] :=17;
-set fixslot[LOG306G] :=19 20;
-set fixslot[LOG110F] :=19;
 set fixslot[LOG119F] :=19;
+set fixslot[LOG110F] :=19;
+set fixslot[LOG306G] :=19 20;
 set fixslot[LAK304F] :=19;
-set fixslot[LOG504G] :=21 22;
-set fixslot[LAK115G] :=21;
 set fixslot[LAK116G] :=21;
 set fixslot[LAK306F] :=21;
 set fixslot[LOG175F] :=21;
+set fixslot[LAK115G] :=21;
+set fixslot[LOG504G] :=21 22;
 set fixslot[LOG103G] :=22;
 set fixslot[TRS105G] :=1 2 3 4 5 6 7 8 9 10 11 12;
 set fixslot[ITH515G] :=1 2 3 4 5 6 7 8 9 10;
@@ -69,14 +69,33 @@ set fixslot[LIS102G] :=1 2 3 4 5 6;
 set fixslot[ISL110G] :=1 2 3 4 5 6 7 8 9 10;
 
 param cidConjoinedData default 0 :=
-[LYF102G, SJU107G] 1
 [SJU107G, LYF102G] 1
-[LAK115G, LAK116G] 1
+[LYF102G, SJU107G] 1
+[LAK121G, LAK120G] 1
+[LAK120G, LAK121G] 1
 [LAK116G, LAK115G] 1
+[LAK115G, LAK116G] 1
+[STA105G, STA108G] 1
+[STA106G, HAG105G] 1
+[STA106G, STA107G] 1
+[EDL102G, EDL107G] 1
+[EFN301G, EFN112G] 1
+[EFN301G, EFN106G] 1
+[EFN307G, EFN315G] 1
+[LEF105F, LEF508G] 1
+[JED301G, JED505G] 1
+[DET101G, DET102G] 1
 [FEL323G, BLF113F] 1
 [SAL501M, SAL141F] 1
 [SAL141F, SAL501M] 1
 [KYN106G, KYN101F] 1
 [KYN101F, KYN106G] 1
 [BLF113F, FEL323G] 1
+[TAN110G, LAK112G] 1
+[UMS501G, UMS103F] 1
+[ABF305G, ISL301G] 1
+[LAK025M, LEI303G] 1
+[LIF523G, LIF118F] 1
+[FER101G, FER112F] 1
+[LAN516G, LAN113F] 1
 ;
