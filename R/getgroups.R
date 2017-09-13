@@ -8,6 +8,7 @@ ue <- unique(PID)
 Strict <- matrix(rep(0,length(CidAssign)*length(CidAssign)),nrow=length(CidAssign))
 
 write(NULL, file="groups.dat")
+write("/*\n", file = "groups.dat", append = T)
 count <- 1
 for (i in c(1:length(ue))) {
   pos <- grep(ue[i],PID)
@@ -56,9 +57,12 @@ for (i in c(1:length(ue))) {
     }
   }
 }
+write("*/\n", file = "groups.dat", append = T)
+
+if (FALSE) {
 extrastr = list()
 extrastr[[1]] = c("VID401G", "VID402G", "VID403G", "VID404G", "VID405G", "VID415G")
-extrastr[[2]] = c("VID202G", "VID204G", "VID205G", "VID258G", "VID263G")
+#extrastr[[2]] = c("VID202G", "VID204G", "VID205G", "VID258G", "VID263G")
 #extrastr[[3]] = c("VID209F", "VID211F", "VID212F")
 #extrastr[[4]] = c("FRA429G", "FRA417M", "FRA429M")
 #extrastr[[5]] = c("HAG207F", "HAG212F", "VID207F")
@@ -85,7 +89,7 @@ for (i in c(1:length(extrastr))) {
     }
   }
 }
-
+}
 
 require(Matrix)
 image(as(Strict, "sparseMatrix"))
