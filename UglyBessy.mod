@@ -165,6 +165,11 @@ subject to RestDayBeforeGroup {c1 in CidExam, c2 in CidExam, e in Days: 1 != day
    and e > 2 and CidCommonGroup[c1,c2] == 1 and CidCommon[c1,c2] > 4 and cidConjoined[c1,c2] != 1 and c1 < c2 and Strict[c1,c2] == 1}:
      Slot[c2, e-2] + Slot[c2, e-1] + Slot[c1, e] + Slot[c1, e+1] + Slot[c1, e-2] + Slot[c1, e-1] + Slot[c2, e] + Slot[c2, e+1] <= 1;
 
+subject to TwoDayRestGroup {c1 in CidExam, c2 in CidExam, e in Days: e > 4 and Strict[c1,c2] == 1 and 1 != dayBeforeHoliday[e]
+  and 1 != dayBeforeHoliday[e-2] #and !(card(festa[c1])==1 and card(festa[c2])==1)
+        and CidCommon[c1,c2] > 70 and CidCommonGroup[c1,c2] == 1 and cidConjoined[c1,c2] != 1 and c1 < c2}:
+          Slot[c2, e-4] + Slot[c2, e-3] + Slot[c2, e-2] + Slot[c2, e-1] + Slot[c1, e] + Slot[c1, e+1]
+        + Slot[c1, e-4] + Slot[c1, e-3] + Slot[c1, e-2] + Slot[c1, e-1] + Slot[c2, e] + Slot[c2, e+1] <= Ztwo[c1,c2];
 
 
 #-----------------------------------Capacity Constraints-------------------------------------#
@@ -285,7 +290,11 @@ printf {c1 in CidExam, c2 in CidExam: CidCommonGroup[c1,c2] == 1 and CidCommon[c
 printf : "þar af þvingað af stjórnsýslu:\n" >> "stats.txt";
 printf {c1 in CidExam, c2 in CidExam: (card(fixslot[c1])>0 and card(fixslot[c2])>0) and Strict[c1,c2] == 1 and CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Zday[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
 printf : "Þreyta tvö próf innan þrjá daga í röð: %.0f (%.2f%%).\n", obj5, 100*obj5/(sum{c in CidExam} cidCount[c]) >> "stats.txt";
-printf {c1 in CidExam, c2 in CidExam: Strict[c1,c2] == 1 and CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Ztwo[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
+printf {c1 in CidExam, c2 in CidExam: CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Ztwo[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
+printf : "þar af nemendur á námsbraut:\n" >> "stats.txt";
+printf {c1 in CidExam, c2 in CidExam: CidCommonGroup[c1,c2] == 1 and CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Ztwo[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
+printf : "þar af þvingað af stjórnsýslu:\n" >> "stats.txt";
+printf {c1 in CidExam, c2 in CidExam: (card(fixslot[c1])>0 and card(fixslot[c2])>0) and CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Ztwo[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
 
 #printf : "Lausnin:\n";
 param SlotTime{e in ExamSlots} := str2time(SlotNames[e], "%y-%m-%d %H:%M:%S");
