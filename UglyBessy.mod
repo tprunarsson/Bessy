@@ -1,9 +1,6 @@
 # Ugly Bessy: Beta version 0.0.3
-# http://sd.keepcalm-o-matic.co.uk/i/keep-calm-and-love-bessy-4.png
 # Authors: Thomas Philip Runarsson and Asgeir Orn Sigurpalsson
-# Last modified by tpr 26/1/2017
-# Updated for bandlimit on seats and two day pause ...
-# This will become the Bessy!
+# Last modified by tpr 13/9/2017
 
 # TODO:
 
