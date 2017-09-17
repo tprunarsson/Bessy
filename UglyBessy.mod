@@ -133,9 +133,8 @@ subject to ConjoinedCourses {c1 in CidExam, c2 in CidExam, e in ExamSlots: !(car
 
 # Hard constraint 2: Students can't take any two exams at the same time, unless forced to do so?!
 # There may be an option here later to relax those that are not strict
-subject to NoStudentClash {e in ExamSlots, c1 in CidExam, c2 in CidExam:
-     !(card(fixslot[c1]) == 1 and card(fixslot[c2]) == 1) and
-     CidCommon[c1,c2] > 0 and c1 < c2 and cidConjoined[c1,c2] != 1 }:
+subject to NoStudentClash {e in ExamSlots, c1 in CidExam, c2 in CidExam: !(card(fixslot[c1]) == 1 and card(fixslot[c2]) == 1) and
+     CidCommon[c1,c2] > toleranceclash and c1 < c2 and cidConjoined[c1,c2] != 1 }:
      Slot[c1, e] + Slot[c2, e] <= 1;
 
 # Semi-hard constraints 1: At some tolerance we dont want students taking more than one exam the same day
@@ -162,11 +161,11 @@ subject to RestDayBeforeHardTol {c1 in CidExam, c2 in CidExam, e in Days: 1 != d
            Slot[c2, e-2] + Slot[c2, e-1] + Slot[c1, e] + Slot[c1, e+1] + Slot[c1, e-2] + Slot[c1, e-1] + Slot[c2, e] + Slot[c2, e+1] <= 1;
 
 subject to RestDayBeforeGroup {c1 in CidExam, c2 in CidExam, e in Days: 1 != dayBeforeHoliday[e] and !(card(fixslot[c1])==1 and card(fixslot[c2])==1)
-   and e > 2 and CidCommonGroup[c1,c2] == 1 and CidCommon[c1,c2] > 4 and cidConjoined[c1,c2] != 1 and c1 < c2 and Strict[c1,c2] == 1}:
+   and e > 2 and CidCommonGroup[c1,c2] == 1 and CidCommon[c1,c2] > 4 and cidConjoined[c1,c2] != 1 and c1 < c2}:
      Slot[c2, e-2] + Slot[c2, e-1] + Slot[c1, e] + Slot[c1, e+1] + Slot[c1, e-2] + Slot[c1, e-1] + Slot[c2, e] + Slot[c2, e+1] <= 1;
 
-subject to TwoDayRestGroup {c1 in CidExam, c2 in CidExam, e in Days: e > 4 and Strict[c1,c2] == 1 and 1 != dayBeforeHoliday[e]
-  and 1 != dayBeforeHoliday[e-2] and !(card(festa[c1])==1 and card(festa[c2])==1)
+subject to TwoDayRestGroup {c1 in CidExam, c2 in CidExam, e in Days: e > 4 and 1 != dayBeforeHoliday[e]
+        and 1 != dayBeforeHoliday[e-2] and !(card(festa[c1])==1 and card(festa[c2])==1)
         and CidCommon[c1,c2] > 100 and CidCommonGroup[c1,c2] == 1 and cidConjoined[c1,c2] != 1 and c1 < c2}:
           Slot[c2, e-4] + Slot[c2, e-3] + Slot[c2, e-2] + Slot[c2, e-1] + Slot[c1, e] + Slot[c1, e+1]
         + Slot[c1, e-4] + Slot[c1, e-3] + Slot[c1, e-2] + Slot[c1, e-1] + Slot[c2, e] + Slot[c2, e+1] <= 1;
@@ -198,7 +197,7 @@ subject to StudentClash {c1 in CidExam, c2 in CidExam, e in ExamSlots:
 
 #Soft Constraint - Will tell us when a course does not have a free day before a scheduled exam
 subject to RestDayBefore {c1 in CidExam, c2 in CidExam, e in Days:  Strict[c1,c2] == 1 and
-    1 != dayBeforeHoliday[e] and e > 2 and CidCommon[c1,c2] > 0 and cidConjoined[c1,c2] != 1 and c1 < c2}:
+    e > 2 and 1 != dayBeforeHoliday[e] and CidCommon[c1,c2] > 0 and cidConjoined[c1,c2] != 1 and c1 < c2}:
     Slot[c2, e-2] + Slot[c2, e-1] + Slot[c1, e] + Slot[c1, e+1] + Slot[c1, e-2] + Slot[c1, e-1] + Slot[c2, e] + Slot[c2, e+1] - 1 <= Zday[c1,c2];
 
 #Soft Constraint - Students should not have two exams the same day
@@ -237,22 +236,22 @@ subject to O2x: obj2x = sum{c1 in CidExam, c2 in CidExam: CidCommon[c1,c2] > 0 a
 #Displays the number of students not receiving one day for preparation for a day
 var obj3;
 var obj3x;
-subject to O3: obj3 = sum{c1 in CidExam, c2 in CidExam: (CidCommonGroup[c1,c2] == 1 or CidCommon[c1,c2] >= 70) and CidCommon[c1,c2] > 0 and cidConjoined[c1,c2] != 1 and c1 < c2} CidCommon[c1,c2] * Zday[c1,c2];
+subject to O3: obj3 = sum{c1 in CidExam, c2 in CidExam: (CidCommonGroup[c1,c2] == 1 or CidCommon[c1,c2] >= 70) and Strict[c1,c2] == 1 and CidCommon[c1,c2] > 0 and cidConjoined[c1,c2] != 1 and c1 < c2} CidCommon[c1,c2] * Zday[c1,c2];
 subject to O3x: obj3x = sum{c1 in CidExam, c2 in CidExam: CidCommon[c1,c2] > 0 and Strict[c1,c2] == 1 and cidConjoined[c1,c2] != 1 and c1 < c2} CidCommon[c1,c2] * Zday[c1,c2];
 #subject to O3x: obj3 <= 300;
 
 #Displays the number of students having two exams in the same timeslot
 var obj4;
-subject to O4: obj4 = sum{c1 in CidExam, c2 in CidExam: CidCommon[c1,c2] > 0 and c1 < c2 and cidConjoined[c1,c2] != 1} CidCommon[c1,c2] * Zclash[c1,c2];
+subject to O4: obj4 = sum{c1 in CidExam, c2 in CidExam: c1 < c2  and CidCommon[c1,c2] > 0 and cidConjoined[c1,c2] != 1} CidCommon[c1,c2] * Zclash[c1,c2];
 
 var obj5;
 var obj5x;
-subject to O5: obj5 = sum{c1 in CidExam, c2 in CidExam: CidCommon[c1,c2] > 70 and c1 < c2 and cidConjoined[c1,c2] != 1} CidCommon[c1,c2] * Ztwo[c1,c2];
+subject to O5: obj5 = sum{c1 in CidExam, c2 in CidExam: (CidCommonGroup[c1,c2] == 1 or CidCommon[c1,c2] > 70) and c1 < c2 and cidConjoined[c1,c2] != 1 and Strict[c1,c2] == 1} CidCommon[c1,c2] * Ztwo[c1,c2];
 subject to O5x: obj5x = sum{c1 in CidExam, c2 in CidExam: CidCommon[c1,c2] > 0 and Strict[c1,c2] == 1 and c1 < c2 and cidConjoined[c1,c2] != 1} CidCommon[c1,c2] * Ztwo[c1,c2];
 
 #-----------------------------------Objective Function------------------------------------------#
 
-minimize Objective: 1000*obj1+500*obj2+400*obj3+10*obj1x+50*obj2x+1*obj3x+100000*obj4+10*obj5+0.1*obj5x+100*maxnumberofbigcoursesperslot;
+minimize Objective: 1000*obj1+500*obj2+400*obj3+100*obj1x+50*obj2x+40*obj3x+100000*obj4+50*obj5+5*obj5x+100*maxnumberofbigcoursesperslot;
 
 solve;
 
@@ -289,12 +288,12 @@ printf : "þar af nemendur á námsbraut:\n" >> "stats.txt";
 printf {c1 in CidExam, c2 in CidExam: CidCommonGroup[c1,c2] == 1 and CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Zday[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
 printf : "þar af þvingað af stjórnsýslu:\n" >> "stats.txt";
 printf {c1 in CidExam, c2 in CidExam: (card(fixslot[c1])>0 and card(fixslot[c2])>0) and Strict[c1,c2] == 1 and CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Zday[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
-#printf : "Þreyta tvö próf innan þrjá daga í röð: %.0f (%.2f%%).\n", obj5, 100*obj5/(sum{c in CidExam} cidCount[c]) >> "stats.txt";
-#printf {c1 in CidExam, c2 in CidExam: CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Ztwo[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
-#printf : "þar af nemendur á námsbraut:\n" >> "stats.txt";
-#printf {c1 in CidExam, c2 in CidExam: CidCommonGroup[c1,c2] == 1 and CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Ztwo[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
-#printf : "þar af þvingað af stjórnsýslu:\n" >> "stats.txt";
-#printf {c1 in CidExam, c2 in CidExam: (card(fixslot[c1])>0 and card(fixslot[c2])>0) and CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Ztwo[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
+printf : "Þreyta tvö próf innan þrjá daga í röð: %.0f (%.2f%%).\n", obj5, 100*obj5/(sum{c in CidExam} cidCount[c]) >> "stats.txt";
+printf {c1 in CidExam, c2 in CidExam: CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Ztwo[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
+printf : "þar af nemendur á námsbraut:\n" >> "stats.txt";
+printf {c1 in CidExam, c2 in CidExam: CidCommonGroup[c1,c2] == 1 and CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Ztwo[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
+printf : "þar af þvingað af stjórnsýslu:\n" >> "stats.txt";
+printf {c1 in CidExam, c2 in CidExam: (card(fixslot[c1])>0 and card(fixslot[c2])>0) and CidCommon[c1,c2] > 0 and c1 < c2  and cidConjoined[c1,c2] != 1 and Ztwo[c1,c2] > 0.1}: "%s(%011.0f) og %s(%011.0f) = %d nem.\n", c1,CidId[c1],c2,CidId[c2],CidCommon[c1,c2] >> "stats.txt";
 
 #printf : "Lausnin:\n";
 param SlotTime{e in ExamSlots} := str2time(SlotNames[e], "%y-%m-%d %H:%M:%S");
