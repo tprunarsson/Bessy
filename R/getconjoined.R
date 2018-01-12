@@ -1,7 +1,7 @@
 rm(list=ls())
 require(rjson)
 
-Ugla.Url <- paste0("https://ugla.hi.is/service/proftafla/?request=sameiginlegNamskeid&proftaflaID=34")
+Ugla.Url <- paste0("https://ugla.hi.is/service/proftafla/?request=sameiginlegNamskeid&proftaflaID=37")
 Ugla.Conjoined <- readLines(Ugla.Url,  warn = "F")
 Ugla.raw <- fromJSON(Ugla.Conjoined)
 
