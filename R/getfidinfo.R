@@ -24,7 +24,7 @@ for (s in scid) {
     for (p in pid) {
       fid <- names(Data[[s]][[d]][[p]])
       for (f in fid) {
-        Url <- sprintf('https://ugla.hi.is/service/toflugerd/?request=cidinfodepend&year=2018&season=fall&scid=%s&did=%s&pid=%s&fid=%s',s,d,p,f)
+        Url <- sprintf('https://ugla.hi.is/service/toflugerd/?request=cidinfodepend&year=2018&season=spring&scid=%s&did=%s&pid=%s&fid=%s',s,d,p,f)
         tmp <- readLines(Url,  warn = "F")
         tmp <- fromJSON(tmp)
         courselist <- tmp$data$`2018`[[s]][[d]][[p]][[f]]

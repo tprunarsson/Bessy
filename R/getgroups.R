@@ -1,6 +1,6 @@
 # TODO:
 rm(list=ls())
-load('fidinfo2018vor.Rdata')
+load('fidinfo2018spring.Rdata')
 CidAssign <- readLines('namskeid.txt')
 
 # find unique program IDs
