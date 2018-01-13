@@ -214,7 +214,7 @@ subject to TwoDayRestSoft {c1 in CidExam, c2 in CidExam, e in Days: e > 4 and St
   and 1 != dayBeforeHoliday[e-2] #and !(card(festa[c1])>0 and card(festa[c2])>0)
         and CidCommon[c1,c2] > 0 and cidConjoined[c1,c2] != 1 and c1 < c2}:
           Slot[c2, e-4] + Slot[c2, e-3] + Slot[c2, e-2] + Slot[c2, e-1] + Slot[c1, e] + Slot[c1, e+1]
-        + Slot[c1, e-4] + Slot[c1, e-3] + Slot[c1, e-2] + Slot[c1, e-1] + Slot[c2, e] + Slot[c2, e+1] <= Ztwo[c1,c2];
+        + Slot[c1, e-4] + Slot[c1, e-3] + Slot[c1, e-2] + Slot[c1, e-1] + Slot[c2, e] + Slot[c2, e+1] - 1 <= Ztwo[c1,c2];
 
 
 #-----------------------------------Collection of Info------------------------------------------#
