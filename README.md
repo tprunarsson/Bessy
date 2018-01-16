@@ -1,2 +1,2 @@
 # Ugly Bessy
-Examination timetabling - autumn 2017
+Examination timetabling - spring 2018
