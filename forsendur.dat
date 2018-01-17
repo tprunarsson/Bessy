@@ -1,6 +1,23 @@
 
 set fixslot[VID211F] :=11 13 15 17 19 21;
 set fixslot[LIF216G] :=5 6 7 8;
+set fixslot[LOG201G] :=5 6;
+set fixslot[LOG203G] :=17 18;
+set fixslot[LOG603G] :=19 20;
+set fixslot[LOG604G] :=1 2;
+set fixslot[LOG605G] :=11 12;
+set fixslot[LOG202F] :=15;
+set fixslot[LOG206F] :=7;
+set fixslot[LOG239F] :=3;
+set fixslot[LOG212F] :=9;
+set fixslot[LOG213F] :=19;
+set fixslot[LOG285F] :=21;
+set fixslot[LOG234F] :=1 2;
+set fixslot[LOG240F] :=11;
+set fixslot[LOG284F] :=17;
+set fixslot[LOG403G] :=3 4;
+set fixslot[LOG404G] :=13 14;
+set fixslot[LOG405G] :=21 22;
 set fixslot[FEL204G] :=1 2 3 4 5 6 7 8 9 10;
 set fixslot[FEL416G] :=1 2 3 4 5 6 7 8 9 10;
 set fixslot[HJU701G] :=5;
@@ -14,6 +31,7 @@ set fixslot[HJU409G] :=1 2 3 4;
 set fixslot[HJU410G] :=5 6 7 8;
 set fixslot[HJU411G] :=13 14 15 16;
 set fixslot[HJU220G] :=13 14 15 16;
+set fixslot[LAK207F] :=17;
 set fixslot[LAK610F] :=18;
 
 param cidConjoinedData default 0 :=
@@ -32,5 +50,4 @@ param cidConjoinedData default 0 :=
 [GSS090G, GSS091G] 1
 [HSP202G, HSP808F] 1
 [KYN202G, KYN211F] 1
-[LAK219G, LAK220G] 1
 ;
