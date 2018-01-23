@@ -1,8 +1,14 @@
 
 set fixslot[VID211F] :=11 13 15 17 19 21;
+set fixslot[RAF402G] :=1 2 3 4 5 6 7 8;
+set fixslot[TOV201G] :=1;
 set fixslot[LIF614M] :=13;
+set fixslot[LAN205G] :=10;
 set fixslot[LIF216G] :=5 6 7 8;
+set fixslot[EDL401G] :=1 2 3 4 5 6 7 8;
 set fixslot[EFN205G] :=9;
+set fixslot[ITH211G] :=2 4 6 8 10;
+set fixslot[ITH213G] :=1 2 3 4 5 6 7 8 9 10;
 set fixslot[LOG201G] :=5 6;
 set fixslot[LOG203G] :=17 18;
 set fixslot[LOG603G] :=19 20;
@@ -23,6 +29,7 @@ set fixslot[LOG405G] :=21 22;
 set fixslot[FRG412G] :=11 12;
 set fixslot[FEL204G] :=1 2 3 4 5 6 7 8 9 10;
 set fixslot[FEL416G] :=1 2 3 4 5 6 7 8 9 10;
+set fixslot[MAN203G] :=1 2 3 4 5 6 7 8 9 10;
 set fixslot[HJU701G] :=5;
 set fixslot[HJU801G] :=11;
 set fixslot[HJU702G] :=8;
@@ -37,6 +44,8 @@ set fixslot[HJU410G] :=5;
 set fixslot[HJU411G] :=16;
 set fixslot[HJU262F] :=11;
 set fixslot[HJU220G] :=16;
+set fixslot[GSS213F] :=1 2 3 4 5 6 7 8 9 10;
+set fixslot[GSS470G] :=1 3 5 7;
 set fixslot[OSS204F] :=8;
 set fixslot[TAN204G] :=1;
 set fixslot[TAN301G] :=17;
@@ -50,6 +59,8 @@ set fixslot[TSM004G] :=1;
 set fixslot[TSM005G] :=9;
 set fixslot[TSM401G] :=1;
 set fixslot[TSM404G] :=9;
+set fixslot[HBV206M] :=6;
+set fixslot[MEN404G] :=1 2 3 4 5 6 7 8 9 10;
 set fixslot[VID258G] :=2;
 set fixslot[VID404G] :=9 10;
 set fixslot[VID205G] :=22;
@@ -57,6 +68,7 @@ set fixslot[LAK207F] :=17;
 set fixslot[LAK610F] :=18;
 
 param cidConjoinedData default 0 :=
+[RAF402G, EDL401G] 1
 [FER409G, FER210F] 1
 [LAN410G, LAN209F] 1
 [STA209G, LAN203G] 1
@@ -69,6 +81,7 @@ param cidConjoinedData default 0 :=
 [TJO203F, TJO437G] 1
 [HJU411G, HJU220G] 1
 [HJU220G, HJU411G] 1
+[LSS602G, LSS404G] 1
 [LSS002F, LSS305G] 1
 [GSS090G, GSS091G] 1
 [HSP202G, HSP808F] 1
