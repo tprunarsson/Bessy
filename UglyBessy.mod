@@ -138,30 +138,31 @@ subject to NoStudentClash {e in ExamSlots, c1 in CidExam, c2 in CidExam: !(card(
      Slot[c1, e] + Slot[c2, e] <= 1;
 
 # Semi-hard constraints 1: At some tolerance we dont want students taking more than one exam the same day
-subject to NotTheSameDay {c1 in CidExam, c2 in CidExam, e in Days: !(card(fixslot[c1])==1 and card(fixslot[c2])==1) and
+subject to NotTheSameDay {c1 in CidExam, c2 in CidExam, e in Days: !(card(fixslot[c1])>=1 and card(fixslot[c1])<=2 and card(fixslot[c2])>=1 and card(fixslot[c2])<=2) and
    CidCommon[c1,c2] > tolerancesame and c1 < c2 and cidConjoined[c1,c2] != 1}:
   (Slot[c1, e] + Slot[c2, e] + Slot[c1,e+1] + Slot[c2,e+1]) <= 1;
 
-subject to NotTheSameDayGroup {c1 in CidExam, c2 in CidExam, e in Days: !(card(fixslot[c1])==1 and card(fixslot[c2])==1) and
+subject to NotTheSameDayGroup {c1 in CidExam, c2 in CidExam, e in Days: !(card(fixslot[c1])>=1 and card(fixslot[c1])<=2 and card(fixslot[c2])>=1 and card(fixslot[c2])<=2) and
   (CidCommonGroup[c1,c2] == 1 or CidCommon[c1,c2] >= 70) and CidCommon[c1,c2] > 0 and c1 < c2 and cidConjoined[c1,c2] != 1}:
     (Slot[c1, e] + Slot[c2, e] + Slot[c1,e+1] + Slot[c2,e+1]) <= 1;
 
 # Semi-hard version up to tolerance of taking exams in a row
-subject to NotTheSameNight {c1 in CidExam, c2 in CidExam, e in Days: 1 != dayBeforeHoliday[e] and !(card(fixslot[c1])==1 and card(fixslot[c2])==1)
+subject to NotTheSameNight {c1 in CidExam, c2 in CidExam, e in Days: 1 != dayBeforeHoliday[e] and !(card(fixslot[c1])>=1 and card(fixslot[c1])<=2 and card(fixslot[c2])>=1 and card(fixslot[c2])<=2)
   and CidCommon[c1,c2] > tolerancesame and c1 < c2 and cidConjoined[c1,c2] != 1}:
      (Slot[c1, e-1] + Slot[c2, e] + Slot[c2, e-1] + Slot[c1, e]) <= 1;
 
-subject to NotTheSameNightGroup {c1 in CidExam, c2 in CidExam, e in Days: 1 != dayBeforeHoliday[e] and !(card(fixslot[c1])==1 and card(fixslot[c2])==1)
-   and (CidCommonGroup[c1,c2] == 1 or CidCommonGroup[c1,c2] >= 70) and CidCommon[c1,c2] > 0 and c1 < c2 and cidConjoined[c1,c2] != 1}:
+subject to NotTheSameNightGroup {c1 in CidExam, c2 in CidExam, e in Days: 1 != dayBeforeHoliday[e] and !(card(fixslot[c1])>=1 and card(fixslot[c1])<=2 and card(fixslot[c2])>=1 and card(fixslot[c2])<=2)
+   and (CidCommonGroup[c1,c2] == 1 or CidCommon[c1,c2] >= 70) and CidCommon[c1,c2] > 0 and c1 < c2 and cidConjoined[c1,c2] != 1}:
       (Slot[c1, e-1] + Slot[c2, e] + Slot[c2, e-1] + Slot[c1, e]) <= 1;
 
 # Semi-hard Will tell us when a course does not have a free day before a scheduled exam
-subject to RestDayBeforeHardTol {c1 in CidExam, c2 in CidExam, e in Days: 1 != dayBeforeHoliday[e] and !(card(fixslot[c1])==1 and card(fixslot[c2])==1)
+subject to RestDayBeforeHardTol {c1 in CidExam, c2 in CidExam, e in Days: 1 != dayBeforeHoliday[e] and !(card(fixslot[c1])>=1 and card(fixslot[c1])<=2 and card(fixslot[c2])>=1 and card(fixslot[c2])<=2)
   and e > 2 and CidCommon[c1,c2] > tolerance and cidConjoined[c1,c2] != 1 and c1 < c2}:
            Slot[c2, e-2] + Slot[c2, e-1] + Slot[c1, e] + Slot[c1, e+1] + Slot[c1, e-2] + Slot[c1, e-1] + Slot[c2, e] + Slot[c2, e+1] <= 1;
 
-subject to RestDayBeforeGroup {c1 in CidExam, c2 in CidExam, e in Days: 1 != dayBeforeHoliday[e] and !(card(fixslot[c1])==1 and card(fixslot[c2])==1)
-   and e > 2 and CidCommonGroup[c1,c2] == 1 and CidCommon[c1,c2] > 4 and cidConjoined[c1,c2] != 1 and c1 < c2}:
+# was 4 where 10 is
+subject to RestDayBeforeGroup {c1 in CidExam, c2 in CidExam, e in Days: 1 != dayBeforeHoliday[e] and !(card(fixslot[c1])>=1 and card(fixslot[c1])<=2 and card(fixslot[c2])>=1 and card(fixslot[c2])<=2)
+   and e > 2 and CidCommonGroup[c1,c2] == 1 and CidCommon[c1,c2] > 10 and cidConjoined[c1,c2] != 1 and c1 < c2}:
      Slot[c2, e-2] + Slot[c2, e-1] + Slot[c1, e] + Slot[c1, e+1] + Slot[c1, e-2] + Slot[c1, e-1] + Slot[c2, e] + Slot[c2, e+1] <= 1;
 
 #subject to TwoDayRestGroup {c1 in CidExam, c2 in CidExam, e in Days: e > 4 and 1 != dayBeforeWeekend[e]
