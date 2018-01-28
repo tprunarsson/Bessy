@@ -81,6 +81,7 @@ set fixslot[VID404G] :=9 10;
 set fixslot[VID205G] :=22;
 set fixslot[ISL205G] :=14;
 set fixslot[ISE201G] :=21 22;
+set fixslot[ISE404G] :=1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16;
 set fixslot[ISE405G] :=2;
 set fixslot[MIS204F] :=13;
 set fixslot[MIS801F] :=3;
