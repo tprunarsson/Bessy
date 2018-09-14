@@ -1,10 +1,17 @@
 rm(list=ls())
 require(rjson)
-UglaService <- Ugla.Url <- paste0("https://ugla.hi.is/service/toflugerd/?request=fidinfo&year=",2018,"&season=spring")
-Ugla.Url <- paste0("https://ugla.hi.is/service/toflugerd/?request=fidinfo&year=",2018,"&season=spring")
+
+UglaService <- Ugla.Url <- paste0("https://ugla.hi.is/service/proftafla/?request=activeProftafla")
 Ugla.Data <- readLines(Ugla.Url,  warn = "F")
 Ugla.Raw <- fromJSON(Ugla.Data)
-Data <- Ugla.Raw$data$'2018'
+Year <- Ugla.Raw$data$year
+Season <- Ugla.Raw$data$season
+
+UglaService <- Ugla.Url <- paste0("https://ugla.hi.is/service/toflugerd/?request=fidinfo&year=",Year,"&season=",Season)
+Ugla.Url <- paste0("https://ugla.hi.is/service/toflugerd/?request=fidinfo&year=",Year,"&season=",Season)
+Ugla.Data <- readLines(Ugla.Url,  warn = "F")
+Ugla.Raw <- fromJSON(Ugla.Data)
+Data <- Ugla.Raw$data[Year]
 scid <- names(Data)
 
 REQ <- character(length=0)
