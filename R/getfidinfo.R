@@ -1,4 +1,3 @@
-rm(list=ls())
 require(rjson)
 
 UglaService <- Ugla.Url <- paste0("https://ugla.hi.is/service/proftafla/?request=activeProftafla")
@@ -11,7 +10,8 @@ UglaService <- Ugla.Url <- paste0("https://ugla.hi.is/service/toflugerd/?request
 Ugla.Url <- paste0("https://ugla.hi.is/service/toflugerd/?request=fidinfo&year=",Year,"&season=",Season)
 Ugla.Data <- readLines(Ugla.Url,  warn = "F")
 Ugla.Raw <- fromJSON(Ugla.Data)
-Data <- Ugla.Raw$data[Year]
+Data <- eval(parse(text=paste0("Ugla.Raw$data$'",Year,"'")))
+
 scid <- names(Data)
 
 REQ <- character(length=0)
@@ -31,10 +31,11 @@ for (s in scid) {
     for (p in pid) {
       fid <- names(Data[[s]][[d]][[p]])
       for (f in fid) {
-        Url <- sprintf('https://ugla.hi.is/service/toflugerd/?request=cidinfodepend&year=2018&season=spring&scid=%s&did=%s&pid=%s&fid=%s',s,d,p,f)
+        Url <- sprintf('https://ugla.hi.is/service/toflugerd/?request=cidinfodepend&year=%s&season=%s&scid=%s&did=%s&pid=%s&fid=%s',Year,Season,s,d,p,f)
         tmp <- readLines(Url,  warn = "F")
         tmp <- fromJSON(tmp)
-        courselist <- tmp$data$`2018`[[s]][[d]][[p]][[f]]
+	tmpdat <- eval(parse(text=paste0("tmp$data$'",Year,"'")))
+        courselist <- tmpdat[[s]][[d]][[p]][[f]]
         lna <- names(courselist)
         i <- i + 1
         for (l in lna) {
@@ -52,5 +53,5 @@ for (s in scid) {
     }
   }
 }
-
-save(list = ls(all.names = TRUE), file = "fidinfo2018spring.Rdata", envir = .GlobalEnv)
+fname = paste0("fidinfo", Year, Season, ".Rdata")
+save(list = ls(all.names = TRUE), file = fname, envir = .GlobalEnv)

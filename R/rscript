@@ -3,3 +3,4 @@ R CMD BATCH getcourses.R
 R CMD BATCH getdefault.R
 R CMD BATCH getforsendur.R
 R CMD BATCH getgroups.R
+R CMD BATCH getparam.R
