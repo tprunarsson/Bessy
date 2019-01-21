@@ -1,8 +1,178 @@
 
-set fixslot[LAK207F] :=13;
-set fixslot[LAK610F] :=17;
-set fixslot[SAG202G] :=1 2 3 4 5 6 7 8 9 10 11 12;
+set fixslot[LAK515G] :=3;
+set fixslot[SJU107G] :=10;
+set fixslot[LAK206F] :=11;
+set fixslot[LAK305F] :=13;
+set fixslot[LAK514G] :=15;
+set fixslot[LAK120G] :=15;
+set fixslot[LAK121G] :=15;
+set fixslot[LAK304F] :=19;
+set fixslot[LAK306F] :=21;
+set fixslot[LAK115G] :=21;
+set fixslot[LAK116G] :=21;
+set fixslot[LOG108G] :=5;
+set fixslot[LOG103G] :=22;
+set fixslot[LOG303G] :=19;
+set fixslot[LOG504G] :=3;
+set fixslot[LOG502G] :=21;
+set fixslot[LOG503G] :=13;
+set fixslot[LOG102F] :=3;
+set fixslot[LOG104F] :=21;
+set fixslot[LOG106F] :=19;
+set fixslot[LOG168F] :=9;
+set fixslot[LOG123F] :=16;
+set fixslot[HAG106F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[HAG101F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[VID164F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[VID156F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[VID101G] :=1 2 3 4 5 6 7 8 9 10;
+set fixslot[SPA102M] :=17 18 19 20 21 22;
+set fixslot[ISE103G] :=2 4 6 8 10 12 14 16 18 20;
+set fixslot[ISE102G] :=2 4 6 8 10 12 14 16 18 20;
+set fixslot[ISE301G] :=1 2 3 4 5 6 7 8 13 14 15 16 17 18 19 20 21 22;
+set fixslot[ISE002G] :=12 14 16 18 20;
+set fixslot[ISE001G] :=2 4 6 8 10;
+set fixslot[TYS108G] :=2 4 6 8 10 12 14 16 18 20 22;
+set fixslot[TYS310G] :=6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[TAN107G] :=1;
+set fixslot[TAN403G] :=1;
+set fixslot[TAN401G] :=9;
+set fixslot[TAN407G] :=19;
+set fixslot[TAN524G] :=7;
+set fixslot[TAN604G] :=9;
+set fixslot[UMV502G] :=1 2 3 4 5 6 7 8 9 10;
+set fixslot[TOV301G] :=1 9 10 11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[TOL303G] :=1 9 10 11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[TOL304G] :=1 9 10 11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[HBV501G] :=1 9 10 11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[TOL301G] :=1 9 10 11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[STA302G] :=1 9 10 11 13 14 15 16 17 18 19 20 21 22;
+set fixslot[EDL506G] :=1 2 3 4 5 6 7 8 9 10;
+set fixslot[JED104G] :=1 2 3 4 5 6 7 8 9 10 11 12;
+set fixslot[JED505G] :=1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20;
+set fixslot[EFN301G] :=9;
+set fixslot[EFN106G] :=9;
+set fixslot[LIF315G] :=1 2 3 4 5 6 7 8 21 22;
+set fixslot[JAR101G] :=1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20;
+set fixslot[FER507G] :=1;
+set fixslot[SAL103G] :=1 2 3 4 5;
+set fixslot[SAL104G] :=7 8 9 10 11;
+set fixslot[SAL102G] :=18 19 20 21 22;
+set fixslot[SAL115G] :=13 14 15 16 17;
+set fixslot[FEL308G] :=1 2 3 4 5 6 7 8 9 10;
+set fixslot[FRG103G] :=1 2 3 4 5 6 7 8;
+set fixslot[STJ301M] :=21 22;
+set fixslot[STJ318G] :=1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 21 22;
+set fixslot[KME301G] :=1 2 3 4 5 6 7 8 9 10;
+set fixslot[IET101G] :=1 2 3 4 5 6 7 8 9 10;
+set fixslot[LSS101G] :=1 2 3 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[LSS501G] :=1 2 3 4 11 12 13 14;
+set fixslot[LSS604M] :=11;
+set fixslot[IET401G] :=18 20;
+set fixslot[MMB301G] :=13;
+set fixslot[LOG131F] :=13;
+set fixslot[KME115F] :=22;
+set fixslot[STJ325G] :=1 2 3 4 5 6 7 8;
+set fixslot[DET101G] :=1 2 3 4 5 6;
+set fixslot[DET102G] :=1 2 3 4 5 6;
+set fixslot[VID140F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[TSM101G] :=19;
+set fixslot[TSM102G] :=7;
+set fixslot[LAK112G] :=17;
+set fixslot[TSM302G] :=9 10;
+set fixslot[TSM304G] :=1 2;
+set fixslot[UMV114F] :=1 2 3 4 5 6 7 8 9 10;
+set fixslot[TAL103F] :=13 14 15 16 17 18 19 20 21 22;
+set fixslot[TAN110G] :=17;
+set fixslot[ITH109G] :=4;
+set fixslot[GSS301F] :=6;
+set fixslot[ISE105G] :=2 4 6 8 10 12 14 16 18 20;
+set fixslot[SFG101F] :=10;
+set fixslot[EFN112G] :=9;
+set fixslot[STM104F] :=21;
+set fixslot[HJU135F] :=1 2 3 4 5;
+set fixslot[FER110F] :=1;
+set fixslot[TOL308G] :=1 9 10 11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[LOG152F] :=1 3 5 7 9 11 19 21;
+set fixslot[TSM502G] :=5;
+set fixslot[LOG304G] :=11;
+set fixslot[LOG306G] :=1;
+set fixslot[STJ107G] :=5;
+set fixslot[HJU142F] :=6 7 8 9 10;
+set fixslot[GSS0A6G] :=11 13 15 17 19;
+set fixslot[HJU108G] :=11 12 13 14 15;
+set fixslot[HJU109G] :=1 2 3 4 5;
+set fixslot[HJU110G] :=6 7 8 9 10;
+set fixslot[HJU111G] :=16 17 18 19 20;
+set fixslot[HJU312G] :=11 12 13 14 15;
+set fixslot[SNU004M] :=1 2 3 4 5 6 7 8;
+set fixslot[KME109F] :=13;
+set fixslot[HJU309G] :=1 2 3 4 5;
+set fixslot[HJU313G] :=16 17 18 19 20;
+set fixslot[HJU150F] :=16 17 18 19 20;
+set fixslot[UMV120F] :=1 2 3 4 5 6 7 8 9 10;
+set fixslot[HJU337F] :=11 12 13 14 15;
+set fixslot[HJU714G] :=5 6 7 8;
+set fixslot[STJ106F] :=5;
+set fixslot[VID175F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[ABF501G] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[VID176F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[VID178F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[VID183F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[HAG125F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[VID187F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[VID190F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[VID193F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[VID195F] :=11 12 13 14 15 16 17 18 19 20 21 22;
+set fixslot[HIT501G] :=13;
+set fixslot[HJU316G] :=6 7 8 9 10;
+set fixslot[HJU715G] :=11 12 13 14 15 16;
+set fixslot[TSM103G] :=13;
+set fixslot[LAK307G] :=9;
 
 param cidConjoinedData default 0 :=
-[LAK221G, LAK214G] 1
+[LYF102G, LAK516G] 1
+[LAK516G, LYF102G] 1
+[LAK120G, LAK121G] 1
+[LAK121G, LAK120G] 1
+[LAK115G, LAK116G] 1
+[LAK116G, LAK115G] 1
+[HAG106F, HAG125F] 1
+[VID164F, VID183F] 1
+[ABF305G, ISL301G] 1
+[RAF302G, VEL302G] 1
+[STA105G, STA108G] 1
+[EDL102G, EDL107G] 1
+[JED505G, JED301G] 1
+[EFN301G, EFN112G] 1
+[EFN301G, EFN106G] 1
+[EFN106G, EFN112G] 1
+[EFN106G, EFN301G] 1
+[EFN307G, EFN315G] 1
+[LIF523G, LIF118F] 1
+[FER101G, FER112F] 1
+[FER507G, FER110F] 1
+[LAN516G, LAN113F] 1
+[SAL501M, SAL141F] 1
+[KYN106G, KYN101F] 1
+[DET101G, DET102G] 1
+[DET102G, DET101G] 1
+[VID140F, VID178F] 1
+[LAK112G, TAN110G] 1
+[TAN110G, LAK112G] 1
+[HAG105G, STA106G] 1
+[HAG105G, STA107G] 1
+[LAK025M, LEI303G] 1
+[LAN512G, LAN108F] 1
+[EFN112G, EFN106G] 1
+[EFN112G, EFN301G] 1
+[FER110F, FER507G] 1
+[BLF113F, FEL323G] 1
+[STJ107G, STJ106F] 1
+[GFR514M, GFR217G] 1
+#[STJ106F, STJ101M] 1
+[VID178F, VID140F] 1
+[VID183F, VID164F] 1
+[HAG125F, HAG106F] 1
+[GFR046F, GFR510M] 1
 ;
